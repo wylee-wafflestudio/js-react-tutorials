@@ -6,13 +6,14 @@
 
 <details>
 <summary><s>JavaScript의 위대함을 보여주는 밈</s></summary>
+
 ![meme1](./assets/js_types_sucks_1.png)
 ![meme2](./assets/js_types_sucks_2.png)
-![meme3](./assets/js_types_sucks_3.png)
+![meme3](./assets/js_types_sucks_3.jpg)
 ![meme4](./assets/js_types_sucks_4.png)
 </details>
 
-## JavaScript 문법
+## JavaScript 기본 문법
 ### 변수와 상수
 ```javascript
 let value = 1;  // 변수
@@ -174,8 +175,8 @@ for (let key in doggy) {
 }
 ```
 
-### 프로토타입과 클래스
-#### 프로토타입
+## 프로토타입과 클래스
+### 프로토타입
 `.prototype.[원하는 key] = ` 로 설정
 ```javascript
 function Animal(type, name, sound) {
@@ -212,7 +213,7 @@ dog.say();  // '멍멍'
 
 ```
 
-#### 클래스와 상속
+### 클래스와 상속
 ```javascript
 class Animal {
   constructor(type, name, sound) {
