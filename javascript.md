@@ -235,3 +235,93 @@ class Dog extends Animal {
 const dog = new Dog('멍멍이', '멍멍');
 dog.say();  // '멍멍'
 ```
+
+# 2. 알고 있으면 유용한 자바스크립트 문법
+
+## 삼항 연산자
+```javascript
+조건 ? true 일떄 : false 일때
+```
+
+## Truthy and Falsy
+Falsy - undefined, null, 0, "", NaN
+Falsy 한 값은 negate 하면 true로 전환됨. 그 외는 전부 Truthy
+```javascript
+// all true
+console.log(!undefined);
+console.log(!null);
+console.log(!0);
+console.log(!'');
+console.log(!NaN);
+```
+
+## 스마트한 조건문
+```javascript
+// 배열의 include 메소드
+function isAnimal(name) {
+  const animals = ['고양이', '개', '거북이', '너구리'];
+  return animals.includes(name);
+}
+
+// 객체에 함수 넣기
+function makeSound(animal) {
+  const tasks = {
+    개() {
+      console.log('멍멍');
+    },
+    고양이() {
+      console.log('고양이');
+    },
+    비둘기() {
+      console.log('구구 구 구');
+    }
+  };
+  if (!tasks[animal]) {
+    console.log('...?');
+    return;
+  }
+  tasks[animal]();
+}
+```
+
+## 비구조화 할당
+```javascript
+// 디폴트 값 설정
+const object = { a: 1 };
+const { a, b = 2 } = object;
+
+// 비구조화 할당 시 이름 바꾸기
+const animal = {
+  name: '멍멍이',
+  type: '개'
+};
+const { name: nickname } = animal // nickname = '멍멍이'
+```
+
+## spread
+기존 객체, 배열의 속성을 그대로 사용하며 새로운 객체를 만든다.
+```javascript
+const animals = ['개', '고양이', '참새'];
+const anotherAnimals = [...animals, '비둘기'];
+```
+
+## rest
+비구조화 할당 시 사용, rest는 새로운 객체 혹은 배열이 된다. 함수 파라미터에서도 동일하게 적용됨.
+```javascript
+// 객체 rest
+const purpleCuteSlime = {
+  name: '슬라임',
+  attribute: 'cute',
+  color: 'purple'
+};
+const { color, ...cuteSlime } = purpleCuteSlime;
+console.log(color);        // 'purple'
+console.log(cuteSlime);    // { name: '슬라임', attribute: 'cute' }
+
+// 함수 파라미터 rest
+const numbers = [1, 2, 3, 4, 5, 6];
+function sum(...rest) {
+  return rest.reduce((acc, current) => acc + current, 0);
+}
+const result = sum(...numbers);  // 21
+```

@@ -26,3 +26,13 @@ const countBiggerThanTen = (numbers) =>
 
 const count = countBiggerThanTen([1, 2, 3, 5, 10, 20, 30, 40, 50, 60]);
 console.log(count); // 5
+
+
+// 2.07 spread와 rest 퀴즈
+function max(...numbers) {
+    return numbers.reduce((acc, current) =>
+        (current > acc ? current : acc), numbers[0]);
+}
+
+const result = max(1, 2, 3, 4, 10, 5, 6, 7);
+console.log(result); // 10
